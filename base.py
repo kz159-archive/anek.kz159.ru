@@ -19,7 +19,7 @@ def html_gen(string, author):
 	  </head>
           <body>
           <h2 style="text-align: center;"><font color = "white">{}</font></h2>
-          <p style="text-align:right;"><cite>&ndash;{}</cite></p>
+          <p style="text-align:right;"><cite>&ndash;<font color = "white"; font size="+3>"{}</font></cite></p>
           </body>
         </html>""".format(string, author)
 
