@@ -1,0 +1,11 @@
+[Unit]
+Description = cherrypy server for handling !fresh aneks
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/var/www/anek.kz159.ru/base.py
+WorkingDirectory=/var/www/anek.kz159.ru
+
+[Install]
+WantedBy=multi-user.target

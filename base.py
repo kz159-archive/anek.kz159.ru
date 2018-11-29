@@ -1,6 +1,12 @@
+#!/usr/bin/python3
+
 import random
 import os, os.path
 import cherrypy
+
+SITE = 'anek.kz159.ru' #Name of site for cherrypy
+
+PORT = 8080 #default port
 
 f_string = ['Подходит поручик Ржевский к Наташе Ростовой', "Купил мужик шляпу", "подходит мужчина к гинекологу"]
 s_string = [' а она ему как раз', ' сел в машину и сгорел', ' а там армяне в нарды играют', ' а она до самого хуя']
@@ -26,19 +32,17 @@ class Root(object):
 if __name__ == '__main__':
     conf ={
 	    'global':{
-		'server.socket_port': 8080,
+		'server.socket_port': PORT,
 		},
             '/': {
                 'tools.sessions.on': True,
-	        'tools.proxy.on': True,
-        	'tools.proxy.base': 'http://anek.kz159.ru',
+	            'tools.proxy.on': True,
+        	    'tools.proxy.base': 'http://' + SITE,
                 'tools.staticdir.root': os.path.abspath(os.getcwd())
                 },
             '/static': {
                 'tools.staticdir.on': True,
                 'tools.staticdir.dir': './public',
-		'tools.staticdir.debug':True,
-		'log.sreen': True
                 }
 }
 cherrypy.quickstart(Root(), '/', conf)
