@@ -8,15 +8,15 @@ SITE = 'anek.kz159.ru' #Name of site for cherrypy
 
 PORT = 8080 #default port
 
-with open ("f_string.txt") as file:
+with open ("./text/f_string.txt") as file:
     f_string = file.readlines()
 f_string = [x.strip() for x in f_string]
 
-with open ("s_string.txt") as file:
+with open ("./text/s_string.txt") as file:
     s_string = file.readlines()
 s_string = [x.strip() for x in s_string]
 
-with open ('authors.txt') as file:
+with open ('./text/authors.txt') as file:
     authors = file.readlines()
 authors = [x.strip() for x in authors]
 
