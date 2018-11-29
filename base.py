@@ -18,8 +18,8 @@ def html_gen(string, author):
 	  <link href="/static/css/style.css" rel="stylesheet">
 	  </head>
           <body>
-          <h2 style="text-align: center;"><font color = "white">{}</font></h2>
-          <p style="text-align:right;"><cite>&ndash;<font color = "white"; font size="+3>"{}</font></cite></p>
+          <h2 style="text-align: center;"><font color = "white">"{}"</font></h2>
+          <p style="text-align:right;"><cite>&ndash;<font color = "white" size ="+1">-{}</font></cite></p>
           </body>
         </html>""".format(string, author)
 

@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
 body {
   background-color: black;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: 'Lobster';
 }
