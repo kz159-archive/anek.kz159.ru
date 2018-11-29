@@ -8,9 +8,22 @@ SITE = 'anek.kz159.ru' #Name of site for cherrypy
 
 PORT = 8080 #default port
 
-f_string = ['Подходит поручик Ржевский к Наташе Ростовой', "Купил мужик шляпу", "подходит мужчина к гинекологу"]
-s_string = [' а она ему как раз', ' сел в машину и сгорел', ' а там армяне в нарды играют', ' а она до самого хуя']
-authors = ['Navalny', 'Gitlar', 'Albert Einstein', 'Nikola Tesla', 'Alan Turing', 'Benedict Cucumberpech']
+with open ("f_string.txt") as file:
+    f_string = file.readlines()
+f_string = [x.strip() for x in f_string]
+
+with open ("s_string.txt") as file:
+    s_string = file.readlines()
+s_string = [x.strip() for x in s_string]
+
+with open ('authors.txt') as file:
+    authors = file.readlines()
+authors = [x.strip() for x in authors]
+
+#Старые методы добавления частей анеков покоятся здесь
+#f_string = ['Подходит поручик Ржевский к Наташе Ростовой', "Купил мужик шляпу", "подходит мужчина к гинекологу"]
+#s_string = [' а она ему как раз', ' сел в машину и сгорел', ' а там армяне в нарды играют', ' а она до самого хуя']
+#authors = ['Navalny', 'Gitlar', 'Albert Einstein', 'Nikola Tesla', 'Alan Turing', 'Benedict Cucumberpech']
 
 def html_gen(string, author):
     return """<html>
@@ -18,7 +31,7 @@ def html_gen(string, author):
 	  <link href="/static/css/style.css" rel="stylesheet">
 	  </head>
           <body>
-          <h2 style="text-align: center;"><font color = "white">"{}"</font></h2>
+          <p style="text-align: center;"><font color = "white" size ="+2">"{}"</font></p>
           <p style="text-align:right;"><cite>&ndash;<font color = "white" size ="+1">-{}</font></cite></p>
           </body>
         </html>""".format(string, author)
@@ -26,7 +39,7 @@ def html_gen(string, author):
 class Root(object):
     @cherrypy.expose
     def index(self):
-        string = random.choice(f_string) + random.choice(s_string)
+        string = random.choice(f_string) + ' ' + random.choice(s_string)
         author = random.choice(authors)
         return html_gen(string, author)
 
